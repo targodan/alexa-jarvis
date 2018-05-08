@@ -48,6 +48,6 @@ const (
 
 // RelativeVolume returns a relative volume.
 // Positive 10 is ten db louder, negative 10 is db less loud.
-func RelativeVolume(dbPlusMinus int) Volume {
-	return Volume(fmt.Sprintf("%+ddb", dbPlusMinus))
+func RelativeVolume(dbPlusMinus float32) Volume {
+	return Volume(fmt.Sprintf("%+0.02fdB", dbPlusMinus))
 }
