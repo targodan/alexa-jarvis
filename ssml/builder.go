@@ -186,6 +186,17 @@ func (b Builder) Word(role WordRole, word string) Builder {
 	return b
 }
 
+func (b Builder) Append(elem Element) Builder {
+	if elem.Name() == "speak" {
+		for _, subElem := range elem.SubElements() {
+			b.lastElement.addSubElement(subElem)
+		}
+	} else {
+		b.lastElement.addSubElement(elem)
+	}
+	return b
+}
+
 func (b Builder) End() Builder {
 	return *b.previousBuilder
 }
